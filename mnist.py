@@ -24,7 +24,7 @@ model.add(Dense(units=10, activation='softmax'))
 model.summary()
 from keras.optimizers import Adam
 model.compile(optimizer=Adam(), loss='categorical_crossentropy',metrics=['accuracy'])
-epoch=5
+epoch=2
 model_fit=model.fit(X_train, y_train, epochs=epoch)
 model.save("mnist.h5")
 os.system("mv /mnist.h5 /root/")
