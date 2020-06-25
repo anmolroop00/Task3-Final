@@ -26,11 +26,12 @@ from keras.optimizers import Adam
 model.compile(optimizer=Adam(), loss='categorical_crossentropy',metrics=['accuracy'])
 epoch=5
 model_fit=model.fit(X_train, y_train, epochs=epoch)
+model.save("mnist.h5")
+os.system("mv /mnist.h5 /root/")
 text=model_fit.history
 for i in range(epoch):
     accuracy=text['accuracy'][i] * 100
     accuracy=int(accuracy)
-
 f = open("accuracy.txt","w+")
 f.write(str(accuracy))
 f.close()
